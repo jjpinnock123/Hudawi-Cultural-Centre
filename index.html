@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HUDAWI Cultural Centre</title>
+  <link rel="icon" type="image/x-icon" href="static/favicon.ico" />
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <style>
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: max-height 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+    }
+    .mobile-menu.open {
+      max-height: 260px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeUp 0.8s ease-out forwards; opacity: 0; }
+    .fade-in-slow { animation: fadeUp 1s ease-out forwards; opacity: 0; animation-delay: 0.15s; }
+    .fade-in-slower { animation: fadeUp 1.1s ease-out forwards; opacity: 0; animation-delay: 0.3s; }
+    .fade-in-slowest { animation: fadeUp 1.2s ease-out forwards; opacity: 0; animation-delay: 0.45s; }
+
+    .scroll-fade { opacity: 0; transform: translateY(18px); transition: 0.6s ease-out; }
+    .scroll-fade.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+
+<body class="font-sans antialiased text-gray-800">
+
+  <!-- Navigation -->
+  <nav class="bg-white/80 backdrop-blur border-b border-slate-200 sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between py-3">
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-amber-700 text-white text-sm font-bold tracking-tight">
+            H
+          </span>
+          <span class="text-lg font-semibold tracking-tight text-slate-900">
+            HUDAWI
+            <span class="hidden sm:inline text-slate-500">Cultural Centre</span>
+          </span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About us</a>
+          <a href="biographies.html" class="nav-link">Biographies</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="faq.html" class="nav-link">FAQ</a>
+          <a href="contact.html" class="nav-link">Contact us</a>
+          <a href="booking.html" class="nav-link nav-link-primary">Booking</a>
+        </div>
+
+        <button
+          class="md:hidden inline-flex items-center justify-center rounded-full border border-slate-300 p-2 text-slate-700 hover:bg-slate-50 focus:outline-none"
+          id="menu-toggle"
+          aria-label="Toggle navigation"
+        >
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+
+      <div class="md:hidden mobile-menu pb-3" id="mobile-menu">
+        <div class="space-y-1 text-sm font-medium">
+          <a href="index.html" class="block py-2 nav-link">Home</a>
+          <a href="about.html" class="block py-2 nav-link">About us</a>
+          <a href="biographies.html" class="block py-2 nav-link">Biographies</a>
+          <a href="gallery.html" class="block py-2 nav-link">Gallery</a>
+          <a href="faq.html" class="block py-2 nav-link">FAQ</a>
+          <a href="contact.html" class="block py-2 nav-link">Contact us</a>
+          <a href="booking.html" class="block py-2 nav-link nav-link-primary">Booking</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Volunteer Popup Modal -->
+  <div
+    id="volunteer-modal"
+    class="fixed inset-0 flex items-center justify-center bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="volunteer-modal-title"
+  >
+    <div class="bg-white max-w-md mx-4 rounded-2xl shadow-xl p-6 relative">
+      <!-- Close button -->
+      <button
+        type="button"
+        class="absolute top-3 right-3 inline-flex items-center justify-center rounded-full border border-slate-200 p-1.5 text-slate-500 hover:bg-slate-100"
+        data-close-volunteer
+        aria-label="Close volunteer message"
+      >
+        <i data-feather="x" class="w-4 h-4"></i>
+      </button>
+
+      <h2 id="volunteer-modal-title" class="text-xl font-bold text-gray-900 mb-3">
+        Volunteers needed
+      </h2>
+      <p class="text-gray-700 mb-4">
+        We need volunteers to help support the HUDAWI Cultural Centre.
+        If you are interested in volunteering, please send us a message on the
+        <a href="contact.html" class="text-amber-600 font-semibold underline">contact page</a>.
+      </p>
+      <div class="flex justify-end">
+        <button
+          type="button"
+          class="px-4 py-2 rounded-full text-sm font-semibold bg-amber-600 text-white hover:bg-amber-700"
+          data-close-volunteer
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-bg text-white py-10">
+    <div class="container mx-auto px-6 text-center">
+
+      <h1 class="text-5xl md:text-7xl font-extrabold text-white drop-shadow-xl mb-6 fade-in">
+        HUDAWI CULTURAL CENTRE
+      </h1>
+
+      <div class="w-32 h-1 bg-amber-600 mx-auto mb-10 fade-in-slow"></div>
+
+      <!-- FIXED PATH -->
+      <img src="Pictures/Hudawi-Centre-1280x640.jpg"
+           alt="Hudawi Cultural Centre"
+           class="mx-auto mb-10 w-full max-w-2xl rounded-lg shadow-lg fade-in-slower" />
+
+      <a href="about.html"
+         class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block fade-in-slowest">
+         Discover More
+      </a>
+    </div>
+  </section>
+
+  <!-- HUDAWI Revival Project Section -->
+  <section id="hudawi-revival" class="py-16 bg-amber-50">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+        HUDAWI Revival Project
+      </h2>
+
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-10">
+
+        <!-- Button -->
+        <a
+          href="https://www.spacehive.com/hudawi-revival"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block px-8 py-3 rounded-full font-semibold bg-amber-600 hover:bg-amber-700 text-white transition duration-300"
+        >
+          Support the HUDAWI Revival Project
+        </a>
+
+        <!-- QR Code - FIXED PATH -->
+        <img
+          src="Pictures/qrcode.jpg"
+          alt="Support the HUDAWI Revival Project QR Code"
+          class="w-32 h-32 rounded-lg shadow-md object-contain"
+        />
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+
+      <div class="max-w-4xl mx-auto text-center scroll-fade show">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Vision</h2>
+
+        <div class="relative mb-10">
+          <i data-feather="quote" class="quote-icon text-amber-600 w-8 h-8 mb-4 mx-auto"></i>
+          <blockquote class="text-xl italic text-gray-600">
+            "In this bright future we can't forget our past."
+          </blockquote>
+          <p class="text-amber-600 mt-2">— Bob Marley</p>
+        </div>
+
+        <p class="text-lg text-gray-600">
+          This guiding thought encapsulates the mission of the HUDAWI Cultural Centre.
+          Embracing and remembering our heritage is not only a source of pride,
+          but also a beacon that lights our shared path forwards.
+        </p>
+      </div>
+
+      <!-- Video (Smaller + Centred) -->
+      <div class="mt-16">
+        <h3 class="text-2xl font-bold text-center text-gray-800 mb-6">
+          The Hudawi Story
+        </h3>
+
+        <div class="mx-auto" style="max-width: 700px;">
+          <video
+            class="w-full rounded-xl shadow-lg"
+            controls
+            preload="metadata"
+            poster="Pictures/LOGO NEW.jpg"
+          >
+            <source src="Videos/VID-20241027-WA0015.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-16 scroll-fade show">Our Pillars</h2>
+
+      <div class="grid md:grid-cols-3 gap-10">
+
+        <div class="bg-white p-8 rounded-lg shadow-md text-center scroll-fade show">
+          <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-6 border-4 border-amber-100 shadow-sm">
+            <!-- FIXED PATH -->
+            <img src="Pictures/20231028_203259.jpg" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-xl font-bold mb-4">Community Hub</h3>
+          <p class="text-gray-600">A welcoming space for all residents across Huddersfield.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md text-center scroll-fade show">
+          <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-6 border-4 border-amber-100 shadow-sm">
+            <!-- FIXED PATH -->
+            <img src="Pictures/18580.jpg" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-xl font-bold mb-4">Cultural Legacy</h3>
+          <p class="text-gray-600">Preserving our heritage while embracing diversity.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md text-center scroll-fade show">
+          <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-6 border-4 border-amber-100 shadow-sm">
+            <!-- FIXED PATH -->
+            <img src="Pictures/18579.jpg" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-xl font-bold mb-4">Sustainable Future</h3>
+          <p class="text-gray-600">A modern, technologically advanced space for the 21st century.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="mt-16 bg-slate-900 text-slate-100">
+    <div class="max-w-6xl mx-auto px-6 py-10 grid gap-10 md:grid-cols-4">
+      <div>
+        <h3 class="text-lg font-semibold tracking-tight">HUDAWI Cultural Centre</h3>
+        <p class="mt-3 text-sm text-slate-300">A welcoming home for heritage, culture and community in Huddersfield.</p>
+        <p class="mt-4 text-sm text-slate-300">Email: <a href="mailto:info@hudawi.org.uk" class="font-medium text-amber-300 hover:text-amber-200">info@hudawi.org.uk</a></p>
+      </div>
+      <div>
+        <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Quick links</h4>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="index.html" class="hover:text-amber-300">Home</a></li>
+          <li><a href="about.html" class="hover:text-amber-300">About us</a></li>
+          <li><a href="biographies.html" class="hover:text-amber-300">Biographies</a></li>
+          <li><a href="gallery.html" class="hover:text-amber-300">Gallery</a></li>
+          <li><a href="booking.html" class="hover:text-amber-300">Room hire &amp; bookings</a></li>
+          <li><a href="faq.html" class="hover:text-amber-300">FAQs</a></li>
+          <li><a href="contact.html" class="hover:text-amber-300">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Policies &amp; documents</h4>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="documents/hudawi-privacy-notice.pdf" class="hover:text-amber-300">Privacy Notice</a></li>
+          <li><a href="documents/hudawi-terms-and-conditions.pdf" class="hover:text-amber-300">Terms &amp; Conditions</a></li>
+          <li><a href="documents/hudawi-hire-application.docx" class="hover:text-amber-300">Hire Application Form</a></li>
+          <li><a href="documents/pol02-centre-bookings-policy.pdf" class="hover:text-amber-300">Centre Bookings Policy</a></li>
+          <li><a href="documents/pol09-health-and-safety-policy.pdf" class="hover:text-amber-300">Health &amp; Safety Policy</a></li>
+          <li><a href="documents/pol18-safeguarding-policy.pdf" class="hover:text-amber-300">Safeguarding Policy</a></li>
+          <li><a href="documents/pol13-food-hygiene-policy.pdf" class="hover:text-amber-300">Food Hygiene Policy</a></li>
+          <li><a href="documents/pol35-cookies-policy.pdf" class="hover:text-amber-300">Cookies Policy</a></li>
+          <li><a href="documents/pol34-hire-charges-policy.pdf" class="hover:text-amber-300">Hire Charges Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Visit us</h4>
+        <p class="mt-4 text-sm text-slate-300">Hudawi Cultural Centre<br>Great Northern Street<br>Huddersfield<br>HD1 6BG</p>
+      </div>
+    </div>
+    <div class="border-t border-slate-800">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
+        <p class="text-xs text-slate-400">© <span id="year"></span> HUDAWI Cultural Centre. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+
+  <script>
+    // Show volunteer modal shortly after page load
+    document.addEventListener('DOMContentLoaded', function () {
+      const modal = document.getElementById('volunteer-modal');
+      const closeButtons = document.querySelectorAll('[data-close-volunteer]');
+
+      if (!modal) return;
+
+      // Small delay so it feels smoother
+      setTimeout(function () {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+      }, 500);
+
+      function closeModal() {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+      }
+
+      closeButtons.forEach(function (btn) {
+        btn.addEventListener('click', closeModal);
+      });
+
+      // Close when clicking on the dark backdrop
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Refresh feather icons (needed for the X icon)
+      if (window.feather) {
+        feather.replace();
+      }
+    });
+  </script>
+
+</body>
+</html>
