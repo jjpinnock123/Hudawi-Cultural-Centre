@@ -1,0 +1,100 @@
+/* ============================
+   Custom Styles for HUDAWI Site
+   ============================ */
+
+/* Modern nav links */
+.nav-link {
+  position: relative;
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.3rem;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: #b45309; /* amber-ish */
+  transition: width 0.18s ease;
+}
+
+.nav-link:hover {
+  color: #111827;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link-primary {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: #b45309;
+  color: #f9fafb !important;
+  box-shadow: 0 8px 18px rgba(180, 83, 9, 0.25);
+}
+
+.nav-link-primary:hover {
+  background: #92400e;
+  color: #ffffff !important;
+}
+
+
+/* Hero backgrounds */
+.hero-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://huggingface.co/spaces/jjpinnock123/hudawi-heritage-horizon/resolve/main/images/About%20us.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.about-hero,
+.bio-hero,
+.gallery-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://huggingface.co/spaces/jjpinnock123/hudawi-heritage-horizon/resolve/main/images/About%20us.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Quote icon (rotated) */
+.quote-icon {
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+/* Bio cards */
+.bio-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.bio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery items */
+.gallery-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Upload area */
+.upload-area {
+  border: 2px dashed #d1d5db;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.upload-area:hover {
+  border-color: #d97706; /* amber-600 */
+}
+.upload-area.dragover {
+  border-color: #d97706;
+  background-color: #fef7e7; /* light amber tint */
+}

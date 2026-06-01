@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - HUDAWI Cultural Centre</title>
+  <link rel="icon" type="image/x-icon" href="static/favicon.ico" />
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons" defer></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Animations & Nav Enhancements -->
+  <style>
+    /* Fade-in keyframes */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Base animation classes – paused by default for scroll control */
+    .animate-fade-in,
+    .animate-fade-in-delay-1,
+    .animate-fade-in-delay-2,
+    .animate-fade-in-delay-3 {
+      opacity: 0;
+      animation-name: fadeInUp;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-play-state: paused;
+    }
+
+    .animate-fade-in {
+      animation-duration: 0.8s;
+    }
+    .animate-fade-in-delay-1 {
+      animation-duration: 0.9s;
+      animation-delay: 0.15s;
+    }
+    .animate-fade-in-delay-2 {
+      animation-duration: 1s;
+      animation-delay: 0.3s;
+    }
+    .animate-fade-in-delay-3 {
+      animation-duration: 1.1s;
+      animation-delay: 0.45s;
+    }
+
+    /* Start animation once this class is added via JS */
+    .animate-start {
+      animation-play-state: running;
+    }
+
+    /* Slide-down effect for mobile nav when opened */
+    @keyframes mobileMenuSlideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    #mobile-menu {
+      animation: mobileMenuSlideDown 0.25s ease-out;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+
+  <!-- Navigation -->
+  <nav class="bg-white/80 backdrop-blur border-b border-slate-200 sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between py-3">
+        <!-- Logo / brand -->
+        <a href="index.html" class="flex items-center gap-2">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-amber-700 text-white text-sm font-bold tracking-tight">
+            H
+          </span>
+          <span class="text-lg font-semibold tracking-tight text-slate-900">
+            HUDAWI
+            <span class="hidden sm:inline text-slate-500">Cultural Centre</span>
+          </span>
+        </a>
+
+        <!-- Desktop navigation -->
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About us</a>
+          <a href="biographies.html" class="nav-link">Biographies</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="faq.html" class="nav-link">FAQ</a>
+          <a href="contact.html" class="nav-link">Contact us</a>
+          <a href="booking.html" class="nav-link nav-link-primary">Booking</a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button
+          class="md:hidden inline-flex items-center justify-center rounded-full border border-slate-300 p-2 text-slate-700 hover:bg-slate-50 focus:outline-none"
+          id="menu-toggle"
+          aria-label="Toggle navigation"
+        >
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="md:hidden mobile-menu pb-3" id="mobile-menu">
+        <div class="space-y-1 text-sm font-medium">
+          <a href="index.html" class="block py-2 nav-link">Home</a>
+          <a href="about.html" class="block py-2 nav-link">About us</a>
+          <a href="biographies.html" class="block py-2 nav-link">Biographies</a>
+          <a href="gallery.html" class="block py-2 nav-link">Gallery</a>
+          <a href="faq.html" class="block py-2 nav-link">FAQ</a>
+          <a href="contact.html" class="block py-2 nav-link">Contact us</a>
+          <a href="booking.html" class="block py-2 nav-link nav-link-primary">Booking</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Title + Image -->
+  <section class="bg-gray-100 py-16">
+    <div class="container mx-auto px-6 text-center">
+      <!-- Title -->
+      <h1 class="text-5xl md:text-6xl font-extrabold text-gray-800 animate-fade-in scroll-animate">
+        ABOUT US
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="mt-4 text-lg md:text-xl text-gray-600 animate-fade-in-delay-1 scroll-animate">
+        Our journey, vision, and commitment to the Huddersfield community.
+      </p>
+
+      <!-- Decorative underline -->
+      <div class="w-24 h-1 bg-amber-600 mx-auto mt-6 mb-10 animate-fade-in-delay-2 scroll-animate"></div>
+
+      <!-- Rounded hero image -->
+      <div class="max-w-5xl mx-auto animate-fade-in-delay-3 scroll-animate">
+        <img
+          src="Pictures/About us.jpg"
+          alt="About HUDAWI Cultural Centre"
+          class="w-full rounded-3xl shadow-lg"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content with faded background image -->
+  <section class="relative py-20 overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img
+        src="Pictures/20231028_203259.jpg"
+        alt=""
+        aria-hidden="true"
+        class="w-full h-full object-cover opacity-25"
+        loading="lazy"
+      />
+    </div>
+    <!-- Dark overlay to ensure text contrast -->
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <div class="relative container mx-auto px-6">
+      <div class="max-w-4xl mx-auto text-white">
+
+        <!-- Our Story -->
+        <h2 class="text-3xl font-bold text-amber-300 mb-8 scroll-animate animate-fade-in">
+          Our Story
+        </h2>
+        <div class="space-y-8 text-gray-100 scroll-animate animate-fade-in-delay-1">
+          <p>
+            Our journey has been long, challenging, and ultimately reaffirming. As a group, our
+            determination to return the HUDAWI Cultural Centre to the community never wavered.
+            Interestingly, many are unaware that HUDAWI stands for Huddersfield African West Indian
+            – a name chosen to foster belonging and unity.
+          </p>
+          <p>
+            From its beginnings as the Huddersfield Caribbean Self Aid Scheme in the late 1970s,
+            the centre has evolved, becoming integral to Huddersfield’s civic, social, and cultural
+            life. As the centre transitions back to community ownership, its significance will only grow.
+          </p>
+        </div>
+
+        <!-- Our Vision -->
+        <h2 class="text-3xl font-bold text-amber-300 mt-16 mb-8 scroll-animate animate-fade-in">
+          Our Vision
+        </h2>
+        <div class="bg-black/40 border border-amber-400/40 p-8 rounded-lg mb-8 scroll-animate animate-fade-in-delay-1">
+          <p class="text-lg italic text-amber-100">
+            “In this bright future we can't forget our past.”
+            — Bob Marley
+          </p>
+        </div>
+
+        <div class="space-y-6 text-gray-100 scroll-animate animate-fade-in-delay-2">
+          <p>
+            This guiding thought encapsulates the mission of the HUDAWI Cultural Centre. Embracing
+            and remembering our heritage is not only a source of pride, but also a beacon that
+            lights our shared path forwards.
+          </p>
+          <p>
+            The stories, traditions, and memories held within these walls form the bedrock on which
+            we build, shaping decisions for generations yet to come.
+          </p>
+        </div>
+
+        <!-- Looking to the Future -->
+        <h2 class="text-3xl font-bold text-amber-300 mt-16 mb-8 scroll-animate animate-fade-in">
+          Looking to the Future
+        </h2>
+        <div class="space-y-6 text-gray-100 scroll-animate animate-fade-in-delay-1">
+          <p>
+            We are dedicated to transforming the building into a modern, sustainable, and
+            technologically advanced space, suitable for the 21st century. Every decision will be
+            rooted in the principles of openness, transparency, and engagement.
+          </p>
+          <p>
+            By collaborating with partners and membership groups in the area, we aim to energise
+            our community and foster a sense of pride in the centre’s ongoing story.
+          </p>
+          <p>
+            Currently, the building remains under the ownership of Kirklees Council. The HUDAWI
+            Consortium, acting on behalf of the community, will not assume full control until all
+            legal and contractual obligations have been satisfied.
+          </p>
+          <p>
+            Kirklees Council will stop taking room bookings from 31 December 2025. As a consortium,
+            we are keen to maintain as many of the existing internal and external bookings as
+            possible. However, at this stage we have no direct control over this process.
+          </p>
+          <p>
+            It is anticipated that the full legal handover will be completed around the end of
+            March 2026. In the meantime, we continue to plan carefully so that the transition is as
+            smooth as possible for all who use and value the centre.
+          </p>
+          <p>
+            We extend our gratitude to the Council for their confidence in selecting us to lead the
+            centre forwards. We had a vision, and the Council heard us.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-16 bg-slate-900 text-slate-100">
+    <div class="max-w-6xl mx-auto px-6 py-10 grid gap-10 md:grid-cols-3">
+      <!-- Column 1: About -->
+      <div>
+        <h3 class="text-lg font-semibold tracking-tight">
+          HUDAWI Cultural Centre
+        </h3>
+        <p class="mt-3 text-sm text-slate-300">
+          A welcoming home for heritage, culture and community in Huddersfield.
+        </p>
+        <p class="mt-4 text-sm text-slate-300">
+          Email:
+          <a
+            href="mailto:info@hudawi.org.uk"
+            class="font-medium text-amber-300 hover:text-amber-200"
+          >
+            info@hudawi.org.uk
+          </a>
+        </p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div>
+        <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+          Quick links
+        </h4>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="index.html" class="hover:text-amber-300">Home</a></li>
+          <li><a href="about.html" class="hover:text-amber-300">About us</a></li>
+          <li><a href="biographies.html" class="hover:text-amber-300">Biographies</a></li>
+          <li><a href="gallery.html" class="hover:text-amber-300">Gallery</a></li>
+          <li><a href="booking.html" class="hover:text-amber-300">Room hire &amp; bookings</a></li>
+          <li><a href="faq.html" class="hover:text-amber-300">FAQs</a></li>
+          <li><a href="contact.html" class="hover:text-amber-300">Contact us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Visit / extra info -->
+      <div>
+  <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+    Visit us
+  </h4>
+  <p class="mt-4 text-sm text-slate-300">
+    Hudawi Cultural Centre<br>
+    Great Northern Street<br>
+    Huddersfield<br>
+    HD1 6BG
+  </p>
+</div>
+
+    </div>
+
+    <div class="border-t border-slate-800">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
+        <p class="text-xs text-slate-400">
+          &copy; <span id="year"></span> HUDAWI Cultural Centre. All rights reserved.
+        </p>
+        <p class="text-xs text-slate-500">
+          Celebrating African and Caribbean heritage in Huddersfield.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.feather) {
+        feather.replace();
+      }
+
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function () {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      const scrollAnimated = document.querySelectorAll('.scroll-animate');
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-start');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+
+        scrollAnimated.forEach(el => observer.observe(el));
+      } else {
+        scrollAnimated.forEach(el => el.classList.add('animate-start'));
+      }
+
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
