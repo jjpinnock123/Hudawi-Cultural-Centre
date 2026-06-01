@@ -4,37 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us – HUDAWI Cultural Centre</title>
-
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Feather Icons -->
   <script src="https://unpkg.com/feather-icons"></script>
-
-  <!-- Favicon (optional, if you’re using it elsewhere) -->
-  <link rel="icon" type="image/x-icon" href="static/favicon.ico" />
-
-  <!-- Custom CSS -->
+  <link rel="icon" type="image/x-icon" href="assets/static/favicon.ico" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
+<body class="font-sans antialiased text-gray-800 bg-white">
 
-<body class="font-sans antialiased text-gray-800">
-
-  <!-- Navigation -->
   <nav class="bg-white/80 backdrop-blur border-b border-slate-200 sticky top-0 z-30">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex items-center justify-between py-3">
-        <!-- Logo / brand -->
         <a href="index.html" class="flex items-center gap-2">
-          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-amber-700 text-white text-sm font-bold tracking-tight">
-            H
-          </span>
-          <span class="text-lg font-semibold tracking-tight text-slate-900">
-            HUDAWI
-            <span class="hidden sm:inline text-slate-500">Cultural Centre</span>
-          </span>
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-amber-700 text-white text-sm font-bold tracking-tight">H</span>
+          <span class="text-lg font-semibold tracking-tight text-slate-900">HUDAWI <span class="hidden sm:inline text-slate-500">Cultural Centre</span></span>
         </a>
-
-        <!-- Desktop navigation -->
         <div class="hidden md:flex items-center gap-6 text-sm font-medium">
           <a href="index.html" class="nav-link">Home</a>
           <a href="about.html" class="nav-link">About us</a>
@@ -44,18 +27,10 @@
           <a href="contact.html" class="nav-link">Contact us</a>
           <a href="booking.html" class="nav-link nav-link-primary">Booking</a>
         </div>
-
-        <!-- Mobile toggle -->
-        <button
-          class="md:hidden inline-flex items-center justify-center rounded-full border border-slate-300 p-2 text-slate-700 hover:bg-slate-50 focus:outline-none"
-          id="menu-toggle"
-          aria-label="Toggle navigation"
-        >
+        <button class="md:hidden inline-flex items-center justify-center rounded-full border border-slate-300 p-2 text-slate-700 hover:bg-slate-50 focus:outline-none" id="menu-toggle" aria-label="Toggle navigation">
           <i data-feather="menu"></i>
         </button>
       </div>
-
-      <!-- Mobile menu -->
       <div class="md:hidden mobile-menu pb-3" id="mobile-menu">
         <div class="space-y-1 text-sm font-medium">
           <a href="index.html" class="block py-2 nav-link">Home</a>
@@ -69,7 +44,7 @@
       </div>
     </div>
   </nav>
-  <!-- Hero -->
+
   <section class="about-hero min-h-[35vh] flex items-center text-white">
     <div class="container mx-auto px-6">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
@@ -77,95 +52,81 @@
     </div>
   </section>
 
-  <!-- Main content -->
   <section class="py-20 bg-white">
-    <div class="container mx-auto px-6 max-w-5xl grid md:grid-cols-2 gap-16">
-
-      <!-- Contact Info -->
+    <div class="container mx-auto px-6 max-w-6xl grid lg:grid-cols-[0.9fr,1.1fr] gap-12 items-start">
       <div class="scroll-fade">
         <h2 class="text-3xl font-bold mb-6 text-gray-800">Get in Touch</h2>
+        <p class="text-gray-700 mb-4">Whether you have a question about the Centre, want to get involved, or need support, our team is here to help.</p>
 
-        <p class="text-gray-700 mb-4">
-          Whether you have a question about the Centre, want to get involved, or need support,
-          our team is here to help.
-        </p>
-
-        <p class="text-gray-800 font-semibold mt-6 mb-2">Email</p>
-         <p class="text-gray-700">
-           <a
-             href="mailto:info@hudawi.org.uk"
-             class="text-amber-700 hover:text-amber-900 font-medium"
-           >
-             info@hudawi.org.uk
-           </a>
-         </p>
-
-        <p class="text-gray-800 font-semibold mt-6 mb-2">Phone</p>
-        <p class="text-gray-700">01234 567890</p>
-      </div>
-
-      <!-- Embedded Google Form -->
-      <div class="scroll-fade">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">Send a Message</h2>
-
-        <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6">
-          <!-- Centered, rounded iframe -->
-          <div class="mx-auto">
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSdcx4wI1HPX3AxqARIytwEUEyufxFy6Qo7HUsEY_mwOotxwPA/viewform?embedded=true"
-              width="100%"
-              height="640"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              class="w-full rounded-2xl border-0"
-              loading="lazy"
-            >
-              Loading…
-            </iframe>
+        <div class="space-y-6 mt-8">
+          <div>
+            <p class="text-gray-800 font-semibold mb-2">Email</p>
+            <p class="text-gray-700"><a href="mailto:info@hudawi.org.uk" class="text-amber-700 hover:text-amber-900 font-medium">info@hudawi.org.uk</a></p>
           </div>
-
-          <p class="text-xs text-gray-500 mt-3 text-center">
-            If the form doesn’t load, 
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcx4wI1HPX3AxqARIytwEUEyufxFy6Qo7HUsEY_mwOotxwPA/viewform?usp=sf_link"
-               target="_blank" rel="noopener"
-               class="text-amber-600 underline">
-              open it in a new tab
-            </a>.
-          </p>
+          <div>
+            <p class="text-gray-800 font-semibold mb-2">Address</p>
+            <p class="text-gray-700">Hudawi Cultural Centre<br>Great Northern Street<br>Huddersfield<br>HD1 6BG</p>
+          </div>
         </div>
       </div>
 
+      <div class="scroll-fade">
+        <div class="form-card">
+          <div class="mb-6">
+            <h2 class="text-3xl font-bold text-gray-800">Send a Message</h2>
+            <p class="text-sm text-slate-500 mt-2">Complete the form below and your message will be sent to the HUDAWI team.</p>
+          </div>
+
+          <form action="https://formsubmit.co/dominic@ngnf.co.uk" method="POST" class="space-y-5">
+            <input type="hidden" name="_cc" value="admin@hudawi.org.uk">
+            <input type="hidden" name="_subject" value="HUDAWI website contact enquiry">
+            <input type="hidden" name="_next" value="https://hudawicc.co.uk/thank-you.html">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
+
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="form-label" for="contact_name">Full name</label>
+                <input class="form-input" id="contact_name" type="text" name="Full Name" required>
+              </div>
+              <div>
+                <label class="form-label" for="contact_email">Email address</label>
+                <input class="form-input" id="contact_email" type="email" name="Email" required>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="form-label" for="contact_phone">Phone number</label>
+                <input class="form-input" id="contact_phone" type="text" name="Phone">
+              </div>
+              <div>
+                <label class="form-label" for="contact_subject">Subject</label>
+                <input class="form-input" id="contact_subject" type="text" name="Subject" required>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label" for="contact_message">Message</label>
+              <textarea class="form-input min-h-[160px]" id="contact_message" name="Message" required></textarea>
+            </div>
+
+            <button type="submit" class="form-button">Send message</button>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
-
   <!-- Footer -->
   <footer class="mt-16 bg-slate-900 text-slate-100">
-    <div class="max-w-6xl mx-auto px-6 py-10 grid gap-10 md:grid-cols-3">
-      <!-- Column 1: About -->
+    <div class="max-w-6xl mx-auto px-6 py-10 grid gap-10 md:grid-cols-4">
       <div>
-        <h3 class="text-lg font-semibold tracking-tight">
-          HUDAWI Cultural Centre
-        </h3>
-        <p class="mt-3 text-sm text-slate-300">
-          A welcoming home for heritage, culture and community in Huddersfield.
-        </p>
-        <p class="mt-4 text-sm text-slate-300">
-          Email:
-          <a
-            href="mailto:info@hudawi.org.uk"
-            class="font-medium text-amber-300 hover:text-amber-200"
-          >
-            info@hudawi.org.uk
-          </a>
-        </p>
+        <h3 class="text-lg font-semibold tracking-tight">HUDAWI Cultural Centre</h3>
+        <p class="mt-3 text-sm text-slate-300">A welcoming home for heritage, culture and community in Huddersfield.</p>
+        <p class="mt-4 text-sm text-slate-300">Email: <a href="mailto:info@hudawi.org.uk" class="font-medium text-amber-300 hover:text-amber-200">info@hudawi.org.uk</a></p>
       </div>
-
-      <!-- Column 2: Quick Links -->
       <div>
-        <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
-          Quick links
-        </h4>
+        <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Quick links</h4>
         <ul class="mt-4 space-y-2 text-sm">
           <li><a href="index.html" class="hover:text-amber-300">Home</a></li>
           <li><a href="about.html" class="hover:text-amber-300">About us</a></li>
@@ -176,30 +137,28 @@
           <li><a href="contact.html" class="hover:text-amber-300">Contact us</a></li>
         </ul>
       </div>
-
-      <!-- Column 3: Visit / extra info -->
       <div>
-  <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
-    Visit us
-  </h4>
-  <p class="mt-4 text-sm text-slate-300">
-    Hudawi Cultural Centre<br>
-    Great Northern Street<br>
-    Huddersfield<br>
-    HD1 6BG
-  </p>
-</div>
-
+        <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Policies &amp; documents</h4>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="documents/hudawi-privacy-notice.pdf" class="hover:text-amber-300">Privacy Notice</a></li>
+          <li><a href="documents/hudawi-terms-and-conditions.pdf" class="hover:text-amber-300">Terms &amp; Conditions</a></li>
+          <li><a href="documents/hudawi-hire-application.docx" class="hover:text-amber-300">Hire Application Form</a></li>
+          <li><a href="documents/pol02-centre-bookings-policy.pdf" class="hover:text-amber-300">Centre Bookings Policy</a></li>
+          <li><a href="documents/pol09-health-and-safety-policy.pdf" class="hover:text-amber-300">Health &amp; Safety Policy</a></li>
+          <li><a href="documents/pol18-safeguarding-policy.pdf" class="hover:text-amber-300">Safeguarding Policy</a></li>
+          <li><a href="documents/pol13-food-hygiene-policy.pdf" class="hover:text-amber-300">Food Hygiene Policy</a></li>
+          <li><a href="documents/pol35-cookies-policy.pdf" class="hover:text-amber-300">Cookies Policy</a></li>
+          <li><a href="documents/pol34-hire-charges-policy.pdf" class="hover:text-amber-300">Hire Charges Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Visit us</h4>
+        <p class="mt-4 text-sm text-slate-300">Hudawi Cultural Centre<br>Great Northern Street<br>Huddersfield<br>HD1 6BG</p>
+      </div>
     </div>
-
     <div class="border-t border-slate-800">
       <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
-        <p class="text-xs text-slate-400">
-          &copy; <span id="year"></span> HUDAWI Cultural Centre. All rights reserved.
-        </p>
-        <p class="text-xs text-slate-500">
-          Celebrating African and Caribbean heritage in Huddersfield.
-        </p>
+        <p class="text-xs text-slate-400">© <span id="year"></span> HUDAWI Cultural Centre. All rights reserved.</p>
       </div>
     </div>
   </footer>
