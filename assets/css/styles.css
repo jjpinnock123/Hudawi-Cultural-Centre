@@ -189,3 +189,98 @@ select.form-input {
     padding: 1.25rem;
   }
 }
+
+
+/* Mobile navigation */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: max-height 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.mobile-menu.open {
+  max-height: 420px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hallmaster booking calendar improvements */
+.hallmaster-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.hallmaster-open-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #b45309;
+  color: #fff;
+  padding: 0.8rem 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(180, 83, 9, 0.22);
+}
+
+.hallmaster-open-button:hover {
+  background: #92400e;
+  color: #fff;
+}
+
+.hallmaster-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+}
+
+.hallmaster-frame {
+  width: 100%;
+  height: 820px;
+  border: 0;
+  display: block;
+}
+
+.mobile-booking-help {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hallmaster-actions {
+    align-items: stretch;
+  }
+
+  .hallmaster-open-button {
+    width: 100%;
+  }
+
+  .mobile-booking-help {
+    display: block;
+    margin-bottom: 0.85rem;
+    border-radius: 1rem;
+    border: 1px solid #fbbf24;
+    background: #fffbeb;
+    color: #78350f;
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .hallmaster-scroll-wrapper {
+    overflow-x: auto;
+  }
+
+  .hallmaster-frame {
+    min-width: 900px;
+    height: 760px;
+  }
+}

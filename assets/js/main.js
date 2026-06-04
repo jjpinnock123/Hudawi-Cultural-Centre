@@ -3,9 +3,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
 
+  const closeMobileMenu = () => {
+    if (mobileMenu) {
+      mobileMenu.classList.remove('open');
+    }
+    if (menuToggle) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  };
+
   if (menuToggle && mobileMenu) {
+    menuToggle.setAttribute('aria-expanded', 'false');
+
     menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close the mobile menu as soon as a menu link is selected.
+    // This stops the menu staying open over the Booking page on phones.
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Close the menu if the visitor taps outside the navigation area.
+    document.addEventListener('click', event => {
+      const clickedInsideMenu = mobileMenu.contains(event.target);
+      const clickedToggle = menuToggle.contains(event.target);
+      if (!clickedInsideMenu && !clickedToggle) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close the menu when Escape is pressed.
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closeMobileMenu();
+      }
     });
   }
 
